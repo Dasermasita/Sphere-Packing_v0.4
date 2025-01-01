@@ -1,24 +1,20 @@
-// Update clock hands
-function updateClock() {
-    const hourHand = document.querySelector(".hour");
-    const minHand = document.querySelector(".min");
-    const secHand = document.querySelector(".sec");
-  
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-  
-    const hourDeg = (hours / 12) * 360 + (minutes / 60) * 30;
-    const minDeg = (minutes / 60) * 360 + (seconds / 60) * 6;
-    const secDeg = (seconds / 60) * 360;
-  
-    hourHand.style.transform = `rotate(${hourDeg}deg)`;
-    minHand.style.transform = `rotate(${minDeg}deg)`;
-    secHand.style.transform = `rotate(${secDeg}deg)`;
-  }
-  
-  // Start the clock
-  setInterval(updateClock, 1000);
-  updateClock();
-  
+import Spheres1Background from 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.17/build/backgrounds/spheres1.cdn.min.js';
+
+const bg = Spheres1Background(document.getElementById('webgl-canvas'), {
+  count: 300,
+  minSize: 0.3,
+  maxSize: 1,
+  gravity: 0.5
+});
+
+document.getElementById('gravity-btn').addEventListener('click', () => {
+  bg.spheres.config.gravity = bg.spheres.config.gravity === 0 ? 1 : 0;
+});
+
+document.getElementById('colors-btn').addEventListener('click', () => {
+  bg.spheres.setColors([
+    0xffffff * Math.random(),
+    0xffffff * Math.random(),
+    0xffffff * Math.random()
+  ]);
+});
