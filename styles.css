@@ -22,9 +22,9 @@ body, html, #app {
   h1, h2 {
     margin: 0;
     padding: 0;
-    color: black;
+    color: rgb(246, 246, 246);
     text-transform: uppercase;
-    text-shadow: 0 0 20px rgba(20, 20, 20, 1);
+    text-shadow: 0 0 20px rgb(233, 233, 233);
     line-height: 100%;
     user-select: none;
   }
